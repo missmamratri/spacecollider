@@ -1,7 +1,22 @@
+<!DOCTYPE html>
 <html>
-<head><title>Space Collider Score</title></head>
-<body>
-  <h1>I've got {{score}} points in Space Collider!</h1>
-  <h2>Let's play with me</h2>
+<head>
+  <meta charset="UTF-8">
+  <title>Space Collider Score</title>
+  <script>
+    // ambil skor dari parameter URL
+    function getScore() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("score");
+    }
+    window.onload = function() {
+      const score = getScore();
+      document.getElementById("scoreText").innerText =
+        "Aku berhasil mencetak " + score + " poin di Space Collider!";
+    }
+  </script>
+</head>
+<body style="background-color:black; color:white; text-align:center; font-family:sans-serif;">
+  <h1 id="scoreText">Loading...</h1>
 </body>
 </html>
